@@ -16,7 +16,7 @@ namespace APICadastroCliente.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "6.0.29")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("APICadastroCliente.Models.Cliente", b =>
@@ -31,12 +31,10 @@ namespace APICadastroCliente.Migrations
                         .HasColumnType("varchar(11)");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasMaxLength(8)
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime?>("DataNascimento")
                         .IsRequired()
-                        .HasMaxLength(8)
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")

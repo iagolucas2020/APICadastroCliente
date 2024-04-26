@@ -1,5 +1,8 @@
+using APICadastroCliente.API.Repositories.Interfaces;
 using APICadastroCliente.Context;
+using APIInventoryManagement.API.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,10 @@ builder.Services.AddSwaggerGen();
 string mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlConnection, ServerVersion.AutoDetect(mySqlConnection)));
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+                   options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,6 +28,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(options =>
+{
+    options.WithOrigins("http://localhost:3000");
+    options.AllowAnyMethod();
+    options.AllowAnyHeader();
+});
 
 app.UseHttpsRedirection();
 
