@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7t73D+dKDXFD4bypxZQacd1jWI0pJJBcWvQtY3Vy45yEcD3SE5S9l4prffZ3xPexqiWXdcKXrw2BljnpBXkdDQ==",
+  "dgSpecHash": "C919Rg8wYm7F/KVnK0bxivjHyJGWmGdGRWRX5tCKwIaCg3YsQ4EaXwEeDMF4kS63Hkp5FPMUwG1bcYWDVQJ69A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Iago\\Desktop\\Projeto\\APICadastroCliente\\APICadastroCliente\\APICadastroCliente\\APICadastroCliente.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,7 @@
     "C:\\Users\\Iago\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.2\\microsoft.entityframeworkcore.design.6.0.2.nupkg.sha512",
     "C:\\Users\\Iago\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.2\\microsoft.entityframeworkcore.inmemory.6.0.2.nupkg.sha512",
     "C:\\Users\\Iago\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.2\\microsoft.entityframeworkcore.relational.6.0.2.nupkg.sha512",
+    "C:\\Users\\Iago\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\6.0.2\\microsoft.entityframeworkcore.tools.6.0.2.nupkg.sha512",
     "C:\\Users\\Iago\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\Iago\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Iago\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
