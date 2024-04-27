@@ -26,6 +26,18 @@ namespace APICadastroCliente.API.Services
             }
         }
 
+        public async Task<IEnumerable<Cliente>> GetFilterAsync(int? id, string? cpf, string? nome, string? email)
+        {
+            try
+            {
+                return await _clienteRepository.GetFilterAsync(id, cpf, nome, email);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public async Task<Cliente> GetByIdAsync(int id)
         {
             try

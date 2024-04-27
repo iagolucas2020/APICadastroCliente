@@ -5,6 +5,7 @@ namespace APICadastroCliente.API.Repositories.Interfaces
     public interface IClienteRepository
     {
         Task<IEnumerable<Cliente>> GetAsync();
+        Task<IEnumerable<Cliente>> GetFilterAsync(int? id, string? cpf, string? nome, string? email);
         Task<Cliente> GetByIdAsync(int id);
         Task<Cliente> PostAsync(Cliente cliente);
         Task<Cliente> PutAsync(Cliente cliente);

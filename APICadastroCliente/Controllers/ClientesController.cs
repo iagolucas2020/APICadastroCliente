@@ -105,5 +105,22 @@ namespace APICadastroCliente.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "There was a problem handling the request. Contact support!");
             }
         }
+
+        [HttpGet("filtro")]
+        public async Task<ActionResult<IEnumerable<Cliente>>> Get(int? id, string? cpf, string? nome, string? email)
+        {
+            try
+            {
+                var clientes = await _cliente.GetFilterAsync(id, cpf, nome, email);
+                if (clientes is null)
+                    return NotFound();
+                return clientes.ToList();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "There was a problem handling the request. Contact support!");
+            }
+
+        }
     }
 }

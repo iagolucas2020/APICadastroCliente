@@ -2,6 +2,7 @@
 using APICadastroCliente.Context;
 using APICadastroCliente.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net.NetworkInformation;
 
 namespace APIInventoryManagement.API.Repositories
 {
@@ -17,6 +18,28 @@ namespace APIInventoryManagement.API.Repositories
         public async Task<IEnumerable<Cliente>> GetAsync()
         {
             return await _context.Clientes.Include(x => x.Endereco).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Cliente>> GetFilterAsync(int? id, string? cpf, string? nome, string? email)
+        {
+            try
+            {
+                var clientes = await _context.Clientes
+                    .FromSqlRaw($"SELECT * FROM Clientes cl WHERE 1 = 1" + 
+                    (id != null ? " AND cl.ClienteId = " + id : "") +
+                    (cpf != null ? " AND cl.Cpf = '" + cpf + "'" : "") +
+                    (nome != null ? " AND cl.Nome LIKE '%" + nome + "%'": "") +
+                    (email != null ? " AND cl.Email = '" + email + "'" : "")
+                    )
+                    .Include(x => x.Endereco)
+                    .ToListAsync();
+                return clientes;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public async Task<Cliente> GetByIdAsync(int id)
