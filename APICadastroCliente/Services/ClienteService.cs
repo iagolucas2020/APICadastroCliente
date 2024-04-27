@@ -1,7 +1,9 @@
 ﻿
 using APICadastroCliente.API.Repositories.Interfaces;
 using APICadastroCliente.API.Services.Interfaces;
+using APICadastroCliente.API.Services.Shared;
 using APICadastroCliente.Models;
+using System.Text;
 
 namespace APICadastroCliente.API.Services
 {
@@ -84,5 +86,13 @@ namespace APICadastroCliente.API.Services
             {
             }
         }
+
+        public async Task GerarPdf(string path)
+        {
+            StringBuilder rel = new StringBuilder();
+            IEnumerable<Cliente> stocks = await _clienteRepository.GetAsync();
+            Usefuls.clientesPdf(path, stocks);
+        }
+
     }
 }

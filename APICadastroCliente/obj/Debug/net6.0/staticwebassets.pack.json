@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Iago\\Desktop\\Projeto\\APICadastroCliente\\APICadastroCliente\\APICadastroCliente\\wwwroot\\temp\\arquivo.pdf",
+      "PackagePath": "staticwebassets\\temp\\arquivo.pdf"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.APICadastroCliente.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.APICadastroCliente.props",
+      "PackagePath": "build\\APICadastroCliente.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.APICadastroCliente.props",
+      "PackagePath": "buildMultiTargeting\\APICadastroCliente.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.APICadastroCliente.props",
+      "PackagePath": "buildTransitive\\APICadastroCliente.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

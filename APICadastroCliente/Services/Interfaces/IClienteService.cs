@@ -11,5 +11,6 @@ namespace APICadastroCliente.API.Services.Interfaces
         Task<Cliente> PostAsync(Cliente cliente);
         Task<Cliente> PutAsync(Cliente cliente);
         Task Delete(Cliente cliente);
+        Task GerarPdf(string path);
     }
 }

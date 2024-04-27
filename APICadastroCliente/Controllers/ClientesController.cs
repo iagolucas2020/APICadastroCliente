@@ -2,6 +2,7 @@
 using APICadastroCliente.API.Services.Interfaces;
 using APICadastroCliente.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace APICadastroCliente.Controllers
 {
@@ -10,10 +11,12 @@ namespace APICadastroCliente.Controllers
     public class ClientesController : ControllerBase
     {
         private readonly IClienteService _cliente;
+        private readonly IHostEnvironment _hostEnvironment;
 
-        public ClientesController(IClienteService cliente)
+        public ClientesController(IClienteService cliente, IHostEnvironment hostEnvironment)
         {
             _cliente = cliente;
+            _hostEnvironment = hostEnvironment;
         }
 
         [HttpGet]
@@ -121,6 +124,21 @@ namespace APICadastroCliente.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "There was a problem handling the request. Contact support!");
             }
 
+        }
+
+        [HttpGet("pdf")]
+        public async Task<IActionResult> GerarPdf()
+        {
+            try
+            {
+                string pathDirectory = _hostEnvironment.ContentRootPath;
+                await _cliente.GerarPdf(pathDirectory);
+                return PhysicalFile(String.Concat(pathDirectory, "wwwroot\\temp\\arquivo.pdf"), "application/pdf", "arquivo.pdf");
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "There was a problem handling the request. Contact support!");
+            }
         }
     }
 }

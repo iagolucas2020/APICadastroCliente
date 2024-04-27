@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "b93ExqFZcAcTwK8yxsPsD48BgymxFxneg2gs8MMSWNI=",
+  "Hash": "HCSfXQd9va+HhbA9DBUoul37U4seLnkgvUFzWOJ3iCo=",
   "Source": "APICadastroCliente",
   "BasePath": "_content/APICadastroCliente",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "APICadastroCliente\\wwwroot",
+      "Source": "APICadastroCliente",
+      "ContentRoot": "C:\\Users\\Iago\\Desktop\\Projeto\\APICadastroCliente\\APICadastroCliente\\APICadastroCliente\\wwwroot\\",
+      "BasePath": "_content/APICadastroCliente",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Iago\\Desktop\\Projeto\\APICadastroCliente\\APICadastroCliente\\APICadastroCliente\\wwwroot\\temp\\arquivo.pdf",
+      "SourceId": "APICadastroCliente",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Iago\\Desktop\\Projeto\\APICadastroCliente\\APICadastroCliente\\APICadastroCliente\\wwwroot\\",
+      "BasePath": "_content/APICadastroCliente",
+      "RelativePath": "temp/arquivo.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\temp\\arquivo.pdf"
+    }
+  ]
 }
