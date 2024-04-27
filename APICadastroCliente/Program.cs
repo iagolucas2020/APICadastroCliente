@@ -1,4 +1,6 @@
 using APICadastroCliente.API.Repositories.Interfaces;
+using APICadastroCliente.API.Services;
+using APICadastroCliente.API.Services.Interfaces;
 using APICadastroCliente.Context;
 using APIInventoryManagement.API.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +20,7 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseMySql(mySqlCon
 
 builder.Services.AddControllers().AddJsonOptions(options =>
                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 
 var app = builder.Build();

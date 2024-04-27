@@ -1,7 +1,6 @@
 ﻿using APICadastroCliente.API.Repositories.Interfaces;
-using APICadastroCliente.Context;
+using APICadastroCliente.API.Services.Interfaces;
 using APICadastroCliente.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APICadastroCliente.Controllers
@@ -10,11 +9,11 @@ namespace APICadastroCliente.Controllers
     [ApiController]
     public class ClientesController : ControllerBase
     {
-        private readonly IClienteRepository _clienteRepository;
+        private readonly IClienteService _cliente;
 
-        public ClientesController(IClienteRepository clienteRepository)
+        public ClientesController(IClienteService cliente)
         {
-            _clienteRepository = clienteRepository;
+            _cliente = cliente;
         }
 
         [HttpGet]
@@ -22,7 +21,7 @@ namespace APICadastroCliente.Controllers
         {
             try
             {
-                var clientes = await _clienteRepository.GetAsync();
+                var clientes = await _cliente.GetAsync();
                 if (clientes is null)
                     return NotFound();
                 return clientes.ToList();
@@ -38,7 +37,7 @@ namespace APICadastroCliente.Controllers
         {
             try
             {
-                var cliente = await _clienteRepository.GetByIdAsync(id);
+                var cliente = await _cliente.GetByIdAsync(id);
                 if (cliente is null)
                     return NotFound($"Id: {id} not found!");
                 return cliente;
@@ -58,7 +57,7 @@ namespace APICadastroCliente.Controllers
                 if (cliente is null)
                     return BadRequest("Invalid data!");
 
-                await _clienteRepository.PostAsync(cliente);
+                await _cliente.PostAsync(cliente);
 
                 return new CreatedAtRouteResult("GetClientes", new { id = cliente.ClienteId }, cliente);
             }
@@ -77,7 +76,7 @@ namespace APICadastroCliente.Controllers
                 if (id != cliente.ClienteId)
                     return BadRequest("Invalid data!");
 
-                await _clienteRepository.PutAsync(cliente);
+                await _cliente.PutAsync(cliente);
 
                 return Ok(cliente);
             }
@@ -93,11 +92,11 @@ namespace APICadastroCliente.Controllers
         {
             try
             {
-                var cliente = await _clienteRepository.GetByIdAsync(id);
+                var cliente = await _cliente.GetByIdAsync(id);
                 if (cliente is null)
                     return NotFound($"Id: {id} not found!");
 
-                await _clienteRepository.Delete(cliente);
+                await _cliente.Delete(cliente);
 
                 return Ok();
             }
