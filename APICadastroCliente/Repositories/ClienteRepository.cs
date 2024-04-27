@@ -16,7 +16,7 @@ namespace APIInventoryManagement.API.Repositories
 
         public async Task<IEnumerable<Cliente>> GetAsync()
         {
-            return await _context.Clientes.ToListAsync();
+            return await _context.Clientes.Include(x => x.Endereco).ToListAsync();
         }
 
         public async Task<Cliente> GetByIdAsync(int id)

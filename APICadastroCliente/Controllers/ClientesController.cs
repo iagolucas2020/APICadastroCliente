@@ -33,6 +33,23 @@ namespace APICadastroCliente.Controllers
             }
         }
 
+        [HttpGet("{id:int}", Name = "GetClientes")]
+        public async Task<ActionResult<Cliente>> GetById(int id)
+        {
+            try
+            {
+                var cliente = await _clienteRepository.GetByIdAsync(id);
+                if (cliente is null)
+                    return NotFound($"Id: {id} not found!");
+                return cliente;
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "There was a problem handling the request. Contact support!");
+            }
+
+        }
+
         [HttpPost]
         public async Task<ActionResult> Post(Cliente cliente)
         {
@@ -43,7 +60,7 @@ namespace APICadastroCliente.Controllers
 
                 await _clienteRepository.PostAsync(cliente);
 
-                return new CreatedAtRouteResult("GetMerchandise", new { id = cliente.ClienteId }, cliente);
+                return new CreatedAtRouteResult("GetClientes", new { id = cliente.ClienteId }, cliente);
             }
             catch (Exception)
             {
@@ -76,11 +93,11 @@ namespace APICadastroCliente.Controllers
         {
             try
             {
-                var merchandise = await _clienteRepository.GetByIdAsync(id);
-                if (merchandise is null)
+                var cliente = await _clienteRepository.GetByIdAsync(id);
+                if (cliente is null)
                     return NotFound($"Id: {id} not found!");
 
-                await _clienteRepository.Delete(merchandise);
+                await _clienteRepository.Delete(cliente);
 
                 return Ok();
             }

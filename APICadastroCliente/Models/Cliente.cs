@@ -26,7 +26,6 @@ namespace APICadastroCliente.Models
         [StringLength(80)]
         [EmailAddress(ErrorMessage = "E-mail em formato inválido.")]
         public string? Email { get; set; }
-        [Required]
         public DateTime DataCadastro { get; set; }
         public int EnderecoId { get; set; }
         public Endereco? Endereco { get; set; }
